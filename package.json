@@ -1,7 +1,9 @@
 {
-  "name": "express-api-starter-ts",
-  "version": "1.2.0",
-  "description": " A basic starter for an express.js API with Typescript",
+  "name": "scintillar-api",
+  "version": "1.0.0",
+  "author": "Dominic Fournier <contact@dominicfournier.com>",
+  "description": "Scintillar's API",
+  "keywords": [],
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -12,15 +14,15 @@
     "test": "jest",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "Dominic Fournier <contact@dominicfournier.com>",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-oauth2-jwt-bearer": "^1.6.0",
     "helmet": "^7.1.0",
     "morgan": "^1.10.0",
     "pg": "^8.12.0",
+    "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@types/node": "^20.12.6",
     "@types/pg": "^8.11.6",
     "@types/supertest": "^6.0.2",
+    "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.6",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",

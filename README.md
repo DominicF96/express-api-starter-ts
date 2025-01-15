@@ -1,10 +1,31 @@
-# Express API Starter with Typescript
+# Scintillar Express API
 
-How to use this template:
+The Scintillar Express API is where the scintillar magic happens.
 
-```sh
-npx create-express-api --typescript --directory my-api-name
+## Setup
+
+See the `env.example` file for environment setup, then run
+
 ```
+npm install
+```
+
+## Development
+
+```
+npm run dev
+```
+
+## Documentation
+
+Once you've launched the API, full API documentation is available at http://localhost:5000/v1/docs. Some routes are secured by Auth0. To easily retrieve an access token, follow [this procedure](https://www.youtube.com/watch?v=E6kZmno2zhU). Some more documentation is available under the `/docs` folder.
+
+## Deployment
+
+The production server is deployed on Railway, synced with the Github repository.
+
+
+## Utilities
 
 Includes API Server utilities:
 
@@ -33,27 +54,3 @@ Development utilities:
   * Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
 * [supertest](https://www.npmjs.com/package/supertest)
   * HTTP assertions made easy via superagent.
-
-## Setup
-
-```
-npm install
-```
-
-## Lint
-
-```
-npm run lint
-```
-
-## Test
-
-```
-npm run test
-```
-
-## Development
-
-```
-npm run dev
-```

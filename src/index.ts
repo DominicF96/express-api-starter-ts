@@ -1,8 +1,11 @@
-import app from './app';
+import app from "./app";
+import config from "./config";
 
-const port = Number.parseInt(process.env.PORT || '5000');
-app.listen(port, '0.0.0.0', () => {
+const port = config.port;
+
+app.listen(port, config.env.host.domain, () => {
   /* eslint-disable no-console */
-  console.log(`Listening: http://localhost:${port}`);
-  /* eslint-enable no-console */
+  console.log(
+    `Environment: ${config.env.node_env}\nListening  : ${config.env.host.protocol}://${config.env.host.domain}:${port}`
+  );
 });
