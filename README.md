@@ -16,6 +16,16 @@ npm install
 npm run dev
 ```
 
+## Running with Docker
+
+To run the backend using Docker, make sure you have Docker and Docker Compose installed. Then, run the following command:
+
+```
+docker-compose up --build
+```
+
+This will build the Docker images and start the containers for the backend and the database. The API will be available at http://localhost:5000.
+
 ## Documentation
 
 Once you've launched the API, full API documentation is available at http://localhost:5000/v1/docs. Some routes are secured by Auth0. To easily retrieve an access token, follow [this procedure](https://www.youtube.com/watch?v=E6kZmno2zhU). Some more documentation is available under the `/docs` folder.
