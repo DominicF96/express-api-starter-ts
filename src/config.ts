@@ -20,7 +20,7 @@ const config = {
   },
   host: {
     domain: process.env.HOST_DOMAIN || "0.0.0.0",
-    port: Number.parseInt(process.env.HOST_PORT || "5000"),
+    port: Number.parseInt(process.env.PORT || "5000"),
     protocol: process.env.HOST_PROTOCOL || "http",
   },
 };
