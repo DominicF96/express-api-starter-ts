@@ -1,6 +1,7 @@
 import express from "express";
 import authenticateUser from "../../../middlewares/auth-user";
-import pool from "../../../db";
+import db from "../../../config/database";
+import config from "../../../config";
 
 const router = express.Router();
 
@@ -23,10 +24,22 @@ router.use(authenticateUser);
  */
 router.get("/health", async (req, res) => {
   try {
-    await pool.query("SELECT 1;");
+    console.log(
+      `DB_HOST`,
+      config.db.host,
+      `DB_NAME`,
+      config.db.name,
+      `POSTGRES`,
+      config.db.user,
+      `DB_PASSWORD`,
+      config.db.password,
+      `DB_PORT`,
+      config.db.port
+    );
+    await db.query("SELECT 1;");
     res.send({ status: "healthy" });
   } catch (error: any) {
-    res.status(500).send({ status: "unhealthy", error: error.message });
+    res.status(500).send({ status: "unhealthy", error });
   }
 });
 

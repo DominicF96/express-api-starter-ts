@@ -1,11 +1,11 @@
 import app from "./app";
 import config from "./config";
 
-const port = config.port;
-
-app.listen(port, config.env.host.domain, () => {
-  /* eslint-disable no-console */
+app.listen(config.host.port, config.host.domain, () => {
   console.log(
-    `Environment: ${config.env.node_env}\nListening  : ${config.env.host.protocol}://${config.env.host.domain}:${port}`
+    `Server is running on http://${config.host.domain}:${config.host.port}`
   );
+  if (config.env.node_env === "development" && config.env.debug) {
+    console.log(`With provided configuration`, config);
+  }
 });
