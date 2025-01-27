@@ -13,6 +13,6 @@
   "include": [
     "./*.js",
     "src/**/*.ts",
-    "test/**/*.ts", "src/db.ts",
+    "test/**/*.ts", "src/db.ts", "src/configs/database.config.js", "src/configs/env.config.js",
   ],
 }

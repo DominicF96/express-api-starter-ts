@@ -2,17 +2,17 @@ require("dotenv").config({ path: process.env.ENV_PATH || ".env" });
 
 const config = {
   auth0: {
-    audience: process.env.AUTH0_AUDIENCE as string,
-    issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL as string,
+    audience: process.env.AUTH0_AUDIENCE,
+    issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
     tokenSigningAlg: "RS256",
   },
   db: {
-    host: process.env.DB_HOST as string,
-    name: process.env.DB_NAME as string,
+    host: process.env.DB_HOST,
+    name: process.env.DB_NAME,
     port: Number.parseInt(process.env.DB_PORT || "5432"),
-    protocol: process.env.DB_PROTOCOL || ("postgres" as string),
-    password: process.env.POSTGRES_PASSWORD as string,
-    user: process.env.POSTGRES_USER as string,
+    protocol: process.env.DB_PROTOCOL || "postgres",
+    password: process.env.POSTGRES_PASSWORD,
+    user: process.env.POSTGRES_USER,
   },
   env: {
     debug: process.env.DEBUG === "true",
@@ -25,4 +25,4 @@ const config = {
   },
 };
 
-export default config;
+module.exports = config;

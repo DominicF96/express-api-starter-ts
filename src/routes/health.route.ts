@@ -1,17 +1,22 @@
 import express from "express";
-import authenticateUser from "../../../middlewares/auth-user";
-import db from "../../../config/database";
-import config from "../../../config";
+import db from "../services/database.service";
+import isAuthenticatedUser from "../middlewares/auth-user";
 
 const router = express.Router();
 
-router.use(authenticateUser);
+/**
+ * @swagger
+ * tags:
+ *   name: HealthChecks
+ *   description: Health check endpoints
+ */
 
 /**
  * @swagger
- * /v1/db/health:
+ * /v1/health/db:
  *   get:
- *     description: Check the health of the database
+ *     summary: Check the health of the database
+ *     tags: [HealthChecks]
  *     security:
  *      - bearerAuth: []
  *     responses:
@@ -22,20 +27,8 @@ router.use(authenticateUser);
  *       500:
  *         description: Database is unhealthy.
  */
-router.get("/health", async (req, res) => {
+router.get("/db", isAuthenticatedUser, async (req, res) => {
   try {
-    console.log(
-      `DB_HOST`,
-      config.db.host,
-      `DB_NAME`,
-      config.db.name,
-      `POSTGRES`,
-      config.db.user,
-      `DB_PASSWORD`,
-      config.db.password,
-      `DB_PORT`,
-      config.db.port
-    );
     await db.query("SELECT 1;");
     res.send({ status: "healthy" });
   } catch (error: any) {

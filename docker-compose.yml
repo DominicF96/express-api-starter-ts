@@ -9,9 +9,12 @@ services:
     env_file:
       - .env.local
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     networks:
       - backend-network
+    command: >
+      sh -c "npm run db:migrate && npm run db:seed && npm start"
 
   db:
     container_name: db
@@ -24,6 +27,11 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - backend-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
 
 volumes:
   pgdata:

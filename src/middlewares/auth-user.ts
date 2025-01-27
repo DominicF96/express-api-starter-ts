@@ -1,8 +1,12 @@
 import { auth } from "express-oauth2-jwt-bearer";
-import config from "../config";
+import config from "../configs/env.config";
 import { NextFunction, Request, Response } from "express";
 
-const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
+const isAuthenticatedUser = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   auth({
     audience: config.auth0.audience,
     issuerBaseURL: config.auth0.issuerBaseURL,
@@ -17,4 +21,4 @@ const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-export default authenticateUser;
+export default isAuthenticatedUser;

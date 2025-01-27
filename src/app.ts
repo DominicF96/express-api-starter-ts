@@ -3,7 +3,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 
-import api from "./routes/v1";
+import api from "./routes";
 import errorHandler from "./middlewares/error-handler";
 
 const app = express();

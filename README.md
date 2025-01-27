@@ -30,6 +30,44 @@ This will build the Docker images and start the containers for the backend and t
 
 Once you've launched the API, full API documentation is available at http://localhost:5000/v1/docs. Some routes are secured by Auth0. To easily retrieve an access token, follow [this procedure](https://www.youtube.com/watch?v=E6kZmno2zhU). Some more documentation is available under the `/docs` folder.
 
+## Migrations
+
+To create a new migration, run:
+
+```
+npx sequelize-cli migration:generate --name migration_name
+```
+
+To run all pending migrations, run:
+
+```
+npm run db:migrate
+```
+
+To undo the last migration, run:
+
+```
+npm run db:migrate:undo
+```
+
+To undo all migrations, run:
+
+```
+npm run db:migrate:undo:all
+```
+
+To seed the database, run:
+
+```
+npm run db:seed
+```
+
+To undo all seeds, run:
+
+```
+npm run db:seed:undo
+```
+
 ## Deployment
 
 The production server is deployed on Railway, synced with the Github repository.

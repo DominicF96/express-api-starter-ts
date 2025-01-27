@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { UnauthorizedError } from "express-oauth2-jwt-bearer";
-import CustomError from "../errors/CustomError";
+import CustomError from "../utils/errors/custom.err";
 import { getErrorMessage } from "../utils";
-import config from "../config";
+import config from "../configs/env.config";
 
 export default function errorHandler(
   error: unknown,

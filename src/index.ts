@@ -1,5 +1,5 @@
 import app from "./app";
-import config from "./config";
+import config from "./configs/env.config";
 
 app.listen(config.host.port, config.host.domain, () => {
   console.log(
