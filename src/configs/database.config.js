@@ -1,4 +1,17 @@
 const config = require("./env.config");
+const { URL } = require("url");
+
+function parseDatabaseUrl(databaseUrl) {
+  const parsedUrl = new URL(databaseUrl);
+  return {
+    username: parsedUrl.username,
+    password: parsedUrl.password,
+    database: parsedUrl.pathname.split("/")[1],
+    host: parsedUrl.hostname,
+    port: parsedUrl.port,
+    dialect: parsedUrl.protocol.slice(0, -1), // remove the trailing ':'
+  };
+}
 
 module.exports = {
   development: {
@@ -22,8 +35,7 @@ module.exports = {
     },
   },
   production: {
-    dialect: config.db.protocol,
-    use_env_variable: "DATABASE_PRIVATE_URL",
+    ...parseDatabaseUrl(process.env.DATABASE_PRIVATE_URL),
     define: {
       timestamps: true,
     },
