@@ -6,8 +6,6 @@ const env = config.env.node_env;
 
 const connection = dbConf[env as "development" | "test" | "production"] as any;
 
-console.log(connection);
-
 const sequelizeConnection = new Sequelize(
   connection.name,
   connection.user,
@@ -15,9 +13,9 @@ const sequelizeConnection = new Sequelize(
   {
     host: connection.host,
     dialect:
-      connection.protocol === "postgresql"
+      connection.dialect === "postgresql"
         ? "postgres"
-        : (connection.protocol as Dialect),
+        : (connection.dialect as Dialect),
     define: {
       timestamps: true,
     },
