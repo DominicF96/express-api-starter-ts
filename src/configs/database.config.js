@@ -1,4 +1,4 @@
-const config = require('./env.config');
+const config = require("./env.config");
 
 module.exports = {
   development: {
@@ -22,8 +22,7 @@ module.exports = {
     },
   },
   production: {
-    dialect: config.db.protocol,
-    use_env_variable: 'DATABASE_PRIVATE_URL',
+    use_env_variable: "DATABASE_PRIVATE_URL",
     define: {
       timestamps: true,
     },

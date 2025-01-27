@@ -12,7 +12,10 @@ const sequelizeConnection = new Sequelize(
   connection.password,
   {
     host: connection.host,
-    dialect: connection.protocol as Dialect,
+    dialect:
+      connection.protocol === "postgresql"
+        ? "postgres"
+        : (connection.protocol as Dialect),
     define: {
       timestamps: true,
     },
