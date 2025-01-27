@@ -22,11 +22,7 @@ module.exports = {
     },
   },
   production: {
-    username: config.db.user,
-    password: config.db.password,
-    database: config.db.name,
-    host: config.db.host,
-    dialect: config.db.protocol,
+    use_env_variable: 'DATABASE_PRIVATE_URL',
     define: {
       timestamps: true,
     },
