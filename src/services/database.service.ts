@@ -6,6 +6,8 @@ const env = config.env.node_env;
 
 const connection = dbConf[env as "development" | "test" | "production"] as any;
 
+console.log(connection);
+
 const sequelizeConnection = new Sequelize(
   connection.name,
   connection.user,
